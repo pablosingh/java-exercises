@@ -3,8 +3,10 @@ package com.pablos.apipersonas.Person;
 import org.springframework.data.annotation.Id;
 
 import jakarta.persistence.Basic;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,8 +16,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class Person {
-    @Id
-    @GeneratedValue
+    @EmbeddedId
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Basic
     private String firstname;

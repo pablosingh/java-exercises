@@ -75,6 +75,7 @@
 				<configuration>
 					<excludes>
 						<exclude>
+							<argLine>--add-opens java.base/java.lang=ALL-UNNAMED</argLine>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 						</exclude>
