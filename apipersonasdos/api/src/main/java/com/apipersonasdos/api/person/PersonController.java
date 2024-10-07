@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,13 +29,20 @@ public class PersonController {
     public Person createPerson(@RequestBody Person person){
         return personSerivice.createPerson(person);
     }
-    
     @GetMapping
     public ArrayList<Person> getArrayPerson() {
         return personSerivice.getArrayPerson();
     }
-    @DeleteMapping
-    public boolean deletePerson(Integer id){
+    @GetMapping("/{id}")
+    public Optional<Person> getMethodName(@PathVariable Integer id) {
+        return personSerivice.getPersonById(id);
+    }
+    @DeleteMapping("/{id}")
+    public boolean deletePerson(@PathVariable Integer id){
         return personSerivice.deletePerson(id);
+    }
+    @PutMapping("/{id}")
+    public Person editPerson(@PathVariable Integer id, @RequestBody Person person) {
+        return personSerivice.createPerson(person);
     }
 }

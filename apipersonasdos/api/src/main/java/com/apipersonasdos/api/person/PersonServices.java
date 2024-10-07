@@ -19,6 +19,9 @@ public class PersonServices {
     public ArrayList<Person> getArrayPerson(){
         return ( ArrayList<Person>) personRepo.findAll();
     }
+    public Optional<Person> getPersonById(Integer id){
+        return personRepo.findById(id);
+    }
     public Optional<Person> findPersonById(Integer id){
         return personRepo.findById(id);
     }
