@@ -1,7 +1,6 @@
-package holdingsPackage;
+package com.dos.portfolio.holpack;
 
 import jakarta.persistence.Basic;
-import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class Holdings {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     @Basic
     private String dateStr;
     private String ticker;

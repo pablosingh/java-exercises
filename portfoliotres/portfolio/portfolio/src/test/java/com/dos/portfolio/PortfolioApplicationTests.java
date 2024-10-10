@@ -1,4 +1,4 @@
-package com.demo.portfolio;
+package com.dos.portfolio;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
