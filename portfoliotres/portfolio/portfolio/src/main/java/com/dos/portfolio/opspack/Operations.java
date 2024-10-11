@@ -1,9 +1,9 @@
-package opspack;
+package com.dos.portfolio.opspack;
 
 import com.dos.portfolio.holpack.Holdings;
 
 import jakarta.persistence.Basic;
-import jakarta.persistence.EmbeddedId;
+// import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;

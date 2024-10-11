@@ -12,7 +12,7 @@ import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import opspack.Operations;
+import com.dos.portfolio.opspack.Operations;
 
 
 @Data
