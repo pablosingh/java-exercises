@@ -1,7 +1,7 @@
 package com.dos.portfolio.opspack;
 
 import java.util.ArrayList;
-// import java.util.Optional;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -19,6 +19,9 @@ public class OperationsServices {
     }
     public ArrayList<Operations> getOperations(){
         return (ArrayList<Operations>) operationsRepo.findAll();
+    }
+    public Optional<Operations> getOperationsById(Long id){
+        return (Optional<Operations>) operationsRepo.findById(id);
     }
     public boolean deleteOperations(Long id){
         try {

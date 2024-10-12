@@ -13,6 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.dos.portfolio.opspack.Operations;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 @Data
@@ -31,5 +32,6 @@ public class Holdings {
     private double initialCapital;
     private String comment;
     @OneToMany(mappedBy = "holding", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Operations> operations;  
 }

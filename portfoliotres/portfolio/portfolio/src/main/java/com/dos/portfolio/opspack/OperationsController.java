@@ -8,9 +8,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 
 @RestController
@@ -26,8 +30,20 @@ public class OperationsController {
     public ArrayList<Operations> getArrayOperations(){
         return opsServices.getOperations();
     }
-    @GetMapping("/hola")
-    public String hola(){
-        return "hola";
+    @GetMapping("/{id}")
+    public Optional<Operations> getOperationsById (@PathVariable Long id){
+        return opsServices.getOperationsById(id);
+    }
+    @PutMapping
+    public Operations editOperations(@RequestBody Operations operations){
+        return opsServices.createOperations(operations);
+    }
+    @DeleteMapping
+    public String deleteOperationsById(@PathVariable Long id){
+        if( opsServices.deleteOperations(id) ){
+            return "Se ha eliminado con éxito";
+        }else{
+            return "Error al eliminar";
+        }
     }
 }

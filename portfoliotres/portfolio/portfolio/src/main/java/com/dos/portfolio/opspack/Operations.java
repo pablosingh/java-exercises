@@ -1,6 +1,7 @@
 package com.dos.portfolio.opspack;
 
 import com.dos.portfolio.holpack.Holdings;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Basic;
 // import jakarta.persistence.EmbeddedId;
@@ -33,7 +34,9 @@ public class Operations {
     private String exchange;
     private String comment;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    // @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "holding_id")
+    @JsonBackReference
     private Holdings holding;
 }
