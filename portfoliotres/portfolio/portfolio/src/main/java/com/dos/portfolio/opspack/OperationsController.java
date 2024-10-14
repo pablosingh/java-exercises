@@ -48,8 +48,8 @@ public class OperationsController {
             return "Error al eliminar";
         }
     }
-    @PostMapping("/test")
-    public Optional<Holdings> checkholds(@RequestBody Operations operation){
+    @PostMapping("/createholds")
+    public Operations checkholds(@RequestBody Operations operation){
         return opsServices.createOpsWithHolds(operation);
     }
 }

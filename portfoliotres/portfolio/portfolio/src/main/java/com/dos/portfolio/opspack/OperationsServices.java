@@ -36,8 +36,11 @@ public class OperationsServices {
             return false;
         }
     }
-    public Optional<Holdings> createOpsWithHolds(Operations operation){
+    public Operations createOpsWithHolds(Operations operation){
         Optional<Holdings> holdsFound = holdsRepo.findByTicker(operation.getTicker());
-        return holdsFound;
+        if(holdsFound.isPresent()){
+            operation.setHolding(holdsFound.get());
+        }
+        return operationsRepo.save(operation);
     }
 }
