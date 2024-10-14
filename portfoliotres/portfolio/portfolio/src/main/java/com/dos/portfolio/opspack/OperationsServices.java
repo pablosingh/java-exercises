@@ -3,7 +3,11 @@ package com.dos.portfolio.opspack;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.dos.portfolio.holpack.Holdings;
+import com.dos.portfolio.holpack.HoldingsInterface;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -13,6 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class OperationsServices {
     private final OperationsInterface operationsRepo;
+    private final HoldingsInterface holdsRepo;
 
     public Operations createOperations(Operations ops){
         return operationsRepo.save(ops);
@@ -30,5 +35,9 @@ public class OperationsServices {
         } catch (Exception e) {
             return false;
         }
+    }
+    public Optional<Holdings> createOpsWithHolds(Operations operation){
+        Optional<Holdings> holdsFound = holdsRepo.findByTicker(operation.getTicker());
+        return holdsFound;
     }
 }

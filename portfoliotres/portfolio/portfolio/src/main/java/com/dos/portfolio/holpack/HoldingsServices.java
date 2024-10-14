@@ -29,4 +29,7 @@ public class HoldingsServices {
             return false;
         }
     }
+    public Optional<Holdings> findByTicker(String ticker){
+        return holdingsRepo.findByTicker(ticker);
+    }
 }

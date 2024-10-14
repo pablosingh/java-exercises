@@ -3,6 +3,8 @@ package com.dos.portfolio.opspack;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dos.portfolio.holpack.Holdings;
+
 import lombok.RequiredArgsConstructor;
 // import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -45,5 +47,9 @@ public class OperationsController {
         }else{
             return "Error al eliminar";
         }
+    }
+    @PostMapping("/test")
+    public Optional<Holdings> checkholds(@RequestBody Operations operation){
+        return opsServices.createOpsWithHolds(operation);
     }
 }

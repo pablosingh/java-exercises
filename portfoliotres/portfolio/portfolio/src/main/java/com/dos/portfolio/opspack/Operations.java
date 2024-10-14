@@ -26,6 +26,7 @@ public class Operations {
     private Long id;
     // id date amount price total buy exchange comment HoldingId
     @Basic
+    private String ticker;
     private String dateStr;
     private double amount;
     private double price;
@@ -34,8 +35,12 @@ public class Operations {
     private String exchange;
     private String comment;
 
-    // @ManyToOne(fetch = FetchType.LAZY)
-    @ManyToOne
+    // public String getTicker(){
+    //     return this.ticker;
+    // }
+
+    // @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "holding_id")
     @JsonBackReference
     private Holdings holding;

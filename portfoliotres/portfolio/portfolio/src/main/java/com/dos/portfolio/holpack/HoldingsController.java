@@ -33,6 +33,10 @@ public class HoldingsController {
     public Optional<Holdings> getHoldingsById(@PathVariable Long id){
         return (Optional<Holdings>) holServices.getHoldingsById(id);
     }
+    @GetMapping("/ticker/{tck}")
+    public Optional<Holdings> getHoldingByTicker(@PathVariable String tck){
+        return  holServices.findByTicker(tck);
+    }
     @PutMapping
     public Holdings editHoldings(Holdings holdings){
         return holServices.createHoldings(holdings);
