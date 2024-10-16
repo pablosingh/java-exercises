@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
 // @EntityScan(basePackages = {"opspack", "com.dos.portfolio.holpack"})
-@EntityScan(basePackages = {"com.dos.portfolio.opspack", "com.dos.portfolio.holpack"})
+@EntityScan(basePackages = {"com.dos.portfolio.opspack", "com.dos.portfolio.holpack", "com.dos.portfolio.criptopack"})
 public class PortfolioApplication {
 
 	public static void main(String[] args) {
