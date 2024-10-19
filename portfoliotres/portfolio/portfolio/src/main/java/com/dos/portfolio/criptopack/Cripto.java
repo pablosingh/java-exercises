@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class Cripto {
-    @EmbeddedId
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Basic
