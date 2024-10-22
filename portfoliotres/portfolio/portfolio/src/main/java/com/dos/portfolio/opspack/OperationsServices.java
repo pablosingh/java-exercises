@@ -3,14 +3,13 @@ package com.dos.portfolio.opspack;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dos.portfolio.holpack.Holdings;
 import com.dos.portfolio.holpack.HoldingsInterface;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+// import lombok.NoArgsConstructor;
 
 // @NoArgsConstructor
 @Service
@@ -40,7 +39,22 @@ public class OperationsServices {
         Optional<Holdings> holdsFound = holdsRepo.findByTicker(operation.getTicker());
         if(holdsFound.isPresent()){
             operation.setHolding(holdsFound.get());
+            return operationsRepo.save(operation);
+        }else{
+            Holdings newHoldings = new Holdings(
+                null,
+                operation.getDateStr(),
+                operation.getTicker(),
+                operation.getAmount(),
+                operation.getPrice(),
+                operation.getTotal(),
+                operation.getComment(),
+                null
+            );
+            holdsRepo.save(newHoldings);
+            operation.setHolding(newHoldings);
+            return operationsRepo.save(operation);
         }
-        return operationsRepo.save(operation);
+        
     }
 }
