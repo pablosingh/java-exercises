@@ -1,9 +1,6 @@
 package com.dos.portfolio.criptopack;
 
-import java.time.LocalDate;
-
 import jakarta.persistence.Basic;
-import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

@@ -35,11 +35,6 @@ public class Operations {
     private String exchange;
     private String comment;
 
-    // public String getTicker(){
-    //     return this.ticker;
-    // }
-
-    // @ManyToOne
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "holding_id")
     @JsonBackReference
