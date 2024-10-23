@@ -1,9 +1,10 @@
 package com.dos.portfolio.requestexternalapi;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
+// import reactor.core.publisher.Mono;
 
 @RestController
 public class ReqCMCapi {
@@ -19,4 +20,11 @@ public class ReqCMCapi {
     //     // Imagina que obtienes todos los usuarios de la base de datos
     //     return userService.findAllUsers();
     // }
+    @Autowired
+    private ApiService apiService;
+
+    @GetMapping("/test")
+    public Flux<String> fetchExternalData(){
+        return apiService.getExternalData();
+    }
 }
