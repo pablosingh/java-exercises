@@ -3,6 +3,9 @@ package com.dos.portfolio.requestexternalapi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.dos.portfolio.apirespmodel.Data;
+
 import reactor.core.publisher.Flux;
 // import reactor.core.publisher.Mono;
 
@@ -26,5 +29,9 @@ public class ReqCMCapi {
     @GetMapping("/test")
     public Flux<String> fetchExternalData(){
         return apiService.getExternalData();
+    }
+    @GetMapping("/test/des")
+    public Flux<Data> getExternalDataDeserialized(){
+        return apiService.getExternalDataDeserialized();
     }
 }
