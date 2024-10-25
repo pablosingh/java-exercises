@@ -5,9 +5,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.dos.portfolio.apirespmodel.Apiresponsemodel;
+import com.dos.portfolio.apirespmodel.Apisimpleresponse;
 import com.dos.portfolio.apirespmodel.Data;
 
 import reactor.core.publisher.Flux;
+
 
 @Service
 public class ApiService {
@@ -26,7 +28,7 @@ public class ApiService {
                 .bodyToFlux(String.class);
     }
 
-    public Flux<Data> getExternalDataDeserialized() {
+    public Flux<Apisimpleresponse> getExternalDataDeserialized() {
         String url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
         return webClientBuilder.build()
                 .get()
@@ -35,6 +37,12 @@ public class ApiService {
                 .header("X-CMC_PRO_API_KEY", "6b555911-d0f2-417f-9bd1-95cf5ea375aa")
                 .retrieve()
                 .bodyToMono(Apiresponsemodel.class) // Cambiamos a bodyToMono
-                .flatMapMany(apiResponse -> Flux.fromIterable(apiResponse.getData()));
+                .flatMapMany(apiResponse -> Flux.fromIterable(apiResponse.getData()))
+                .map(data -> {
+                    String name = data.getName();
+                    String symbol = data.getSymbol();
+                    double price = data.getQuote().getUSD().getPrice();
+                    return new Apisimpleresponse(name, symbol, price);
+                });
     }
 }

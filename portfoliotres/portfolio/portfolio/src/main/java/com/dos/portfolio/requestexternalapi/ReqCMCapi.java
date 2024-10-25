@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dos.portfolio.apirespmodel.Apisimpleresponse;
 import com.dos.portfolio.apirespmodel.Data;
 
 import reactor.core.publisher.Flux;
@@ -31,7 +32,7 @@ public class ReqCMCapi {
         return apiService.getExternalData();
     }
     @GetMapping("/test/des")
-    public Flux<Data> getExternalDataDeserialized(){
+    public Flux<Apisimpleresponse> getExternalDataDeserialized(){
         return apiService.getExternalDataDeserialized();
     }
 }
