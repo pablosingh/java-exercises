@@ -37,12 +37,12 @@ public class HoldingsController {
     public Optional<Holdings> getHoldingByTicker(@PathVariable String tck){
         return  holServices.findByTicker(tck);
     }
-    @PutMapping
-    public Holdings editHoldings(Holdings holdings){
-        return holServices.createHoldings(holdings);
-    }
-    @DeleteMapping("/{id}")
-    public boolean deleteHoldings(@PathVariable Long id){
-        return holServices.deleteHoldings(id);
-    }
+    // @PutMapping
+    // public Holdings editHoldings(Holdings holdings){
+    //     return holServices.createHoldings(holdings);
+    // }
+    // @DeleteMapping("/{id}")
+    // public boolean deleteHoldings(@PathVariable Long id){
+    //     return holServices.deleteHoldings(id);
+    // }
 }
